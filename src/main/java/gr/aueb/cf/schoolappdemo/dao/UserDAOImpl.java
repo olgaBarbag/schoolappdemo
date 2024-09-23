@@ -1,6 +1,6 @@
-package gr.aueb.cf.schoolappdemo.dao.exceptions;
+package gr.aueb.cf.schoolappdemo.dao;
 
-import gr.aueb.cf.schoolappdemo.dao.IUserDAO;
+import gr.aueb.cf.schoolappdemo.dao.exceptions.UserDAOException;
 import gr.aueb.cf.schoolappdemo.model.User;
 import gr.aueb.cf.schoolappdemo.security.SecUtil;
 import gr.aueb.cf.schoolappdemo.service.util.DBUtil;
