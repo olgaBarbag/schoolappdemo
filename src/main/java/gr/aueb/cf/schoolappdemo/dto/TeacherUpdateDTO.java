@@ -6,7 +6,7 @@ public class TeacherUpdateDTO extends BaseTeacherDTO {
     public TeacherUpdateDTO() {
     }
 
-    public TeacherUpdateDTO(String firstname, String lastname, Integer id) {
+    public TeacherUpdateDTO( Integer id, String firstname, String lastname) {
         super(firstname, lastname);
         this.id = id;
     }

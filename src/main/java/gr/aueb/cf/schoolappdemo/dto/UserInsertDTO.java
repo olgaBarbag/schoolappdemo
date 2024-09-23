@@ -4,5 +4,8 @@ public class UserInsertDTO extends BaseUserDTO {
 
     public UserInsertDTO() {
     }
-    public UserInsertDTO(String firstName, String lastName, String email, String password) {}
+
+    public UserInsertDTO(String username, String password, String confirmPassword) {
+        super(username, password, confirmPassword);
+    }
 }

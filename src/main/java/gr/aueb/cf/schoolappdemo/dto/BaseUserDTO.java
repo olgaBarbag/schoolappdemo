@@ -15,7 +15,7 @@ public class BaseUserDTO {
         this.confirmPassword = confirmPassword;
     }
 
-    public BaseUserDTO(String password, String username) {
+    public BaseUserDTO(String username, String password) {
         this.password = password;
         this.username = username;
     }
