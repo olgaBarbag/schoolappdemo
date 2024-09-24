@@ -30,7 +30,7 @@
       <%--Conditional: if validation is error or any other error in login process,
       controller will send that with request back to login page--%>
       <%--.isError is an attribute--%>
-      <c:if test="${requestScope.isErrror eq 'true'}">
+      <c:if test="${requestScope.isError eq 'true'}">
         <p style="color: red">Login Error</p>
       </c:if>
     </div>
