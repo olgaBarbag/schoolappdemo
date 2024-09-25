@@ -18,44 +18,58 @@
 
   <%--Registration form--%>
   <div class="form m-bottom">
-    <%--        <form method="POST" action="${pageContext.request.contextPath}/users/register">--%>
+
+    <%--<form method="POST" action="${pageContext.request.contextPath}/users/register">--%>
+    <%--requestScope/sessionScope are the data canal from controllers to jsp pages--%>
+    <%--value="${requestScope.userRegisterDTO.xxxx}" : this value is defined by the saved data in DTO. --%>
     <form method="POST" action="">
 
+      <%--Username--%>
       <div class="row m-bottom">
-        <%--this value is defined by the saved data in DTO.
-                This method is useful for forms with a great number of fields that should be autofilled
-                after refresh of the page
-                refresh of the page could happen after an unsuccessful VALIDATION
-                DTO saves data after POST--%>
 
-        <%--requestScope/sessionScope are the data canal from controllers to jsp pages--%>
+
+        <%--Input username--%>
         <input class="m-bottom" type="email" name="username" value="${requestScope.userRegisterDTO.username}" required placeholder="Username">
 
-        <%--Here is the error message that will show up if validation failed due to this input
-        Validator which will check this input, will return a HashMap key = usernameMessage and value = "message"
-        It works like conditional, if passes the validation is null if not an error message will show up--%>
+        <%--Error message:
+        if validation from Validator Util Class failed due to this input
+        will return a HashMap key = usernameMessage and value = "message"
+        It works like conditional (.getOrDefault), if passes the validation is null if not an error message will show up--%>
         <p class="validation-error">${requestScope.usernameMessage}</p>
       </div>
 
 
+      <%--Password--%>
       <div class="row m-bottom">
+        <%--Input username--%>
         <input class="m-bottom" type="password" name="password" value="${requestScope.userRegisterDTO.password}" required placeholder="Password">
-        <%--Here error message will show up--%>
+
+        <%--Error message:--%>
         <p class="validation-error">${requestScope.passwordMessage}</p>
       </div>
+
+
+      <%--Confirm Password--%>
       <div class="row m-bottom">
+        <%--Input Confirm Password--%>
         <input class="m-bottom" type="password" name="confirmPassword" value="${requestScope.userRegisterDTO.confirmPassword}" required placeholder="Confirm Password">
+
+        <%--Error message:--%>
         <p class="validation-error">${requestScope.confirmPasswordMessage}</p>
       </div>
+
+      <%--Submit--%>
       <div class="row">
         <button type="submit">Εγγραφή</button>
       </div>
     </form>
   </div>
 
+  <%--Return--%>
   <div class="m-bottom">
     <a href="${pageContext.request.contextPath}/login">Επιστροφή</a>
   </div>
+
 
   <div>
     ${requestScope.errorMessage}

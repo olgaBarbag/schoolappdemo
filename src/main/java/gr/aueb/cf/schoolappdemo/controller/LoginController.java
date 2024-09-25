@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
         request.setAttribute("isError", isError == null ? "false" : "true" );
 
         /*Basic role of doGet --> go to the page*/
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
     }
 
     /* doPost */
@@ -63,14 +63,19 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
         /*Data Binding*/
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
 
+
+        /*Creates an object for the subsequent conditional check*/
         //Principle is the login user
         boolean principleIsAuthenticated = false;
+
+        /*DTO instance*/
         UserLoginDTO userLoginDTO = new UserLoginDTO(username, password);
 
         try {
+            /*Connect the object with the method that is used in conditional*/
             principleIsAuthenticated = AuthenticationProvider.authenticate(userLoginDTO);
 
             /*If authentication passed*/

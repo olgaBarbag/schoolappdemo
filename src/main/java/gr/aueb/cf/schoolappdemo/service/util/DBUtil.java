@@ -32,8 +32,9 @@ public class DBUtil {
             //MySql driver is not loading automatically into the memory
             //.forName LOADS the included class in memory
             //so then we can use instances
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = dataSource.getConnection();
+            System.out.println("Server works!");
             return connection;
         } catch (ClassNotFoundException e) {
 
