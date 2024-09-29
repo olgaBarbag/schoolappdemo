@@ -109,8 +109,8 @@ public class TeacherDAOImpl implements ITeacherDAO {
         try (Connection connection = DBUtil.getConnection();
              PreparedStatement ps = connection.prepareStatement(findFilteredTeachersSql);
         ){
-            ps.setString(1, firstname);
-            ps.setString(2, lastname);
+            ps.setString(1, "%" + firstname + "%");
+            ps.setString(2, "%" + lastname + "%");
             rs = ps.executeQuery();
 
             while (rs.next()) {

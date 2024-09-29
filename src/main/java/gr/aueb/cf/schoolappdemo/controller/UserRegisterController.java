@@ -29,6 +29,7 @@ public class UserRegisterController extends HttpServlet {
     private final IUserService userService = new UserServiceImpl(userDAO);
 
 
+    /*doGET*/
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,6 +39,10 @@ public class UserRegisterController extends HttpServlet {
 
     }
 
+
+
+
+    /*doPOST*/
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
