@@ -63,8 +63,8 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
 
         /*Data Binding*/
-        String username = request.getParameter("username").trim();
-        String password = request.getParameter("password").trim();
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
 
 
         /*Creates an object for the subsequent conditional check*/

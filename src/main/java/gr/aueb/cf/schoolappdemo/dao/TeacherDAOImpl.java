@@ -102,7 +102,7 @@ public class TeacherDAOImpl implements ITeacherDAO {
 
     @Override
     public List<Teacher> findFilteredTeachers(String firstname, String lastname) throws TeacherDAOException {
-        String findFilteredTeachersSql = "SELECT * FROM teachers WHERE firstname = ? AND lastname = ?";
+        String findFilteredTeachersSql = "SELECT * FROM teachers WHERE firstname LIKE ? AND lastname LIKE ?";
         List<Teacher> teachers = new ArrayList<Teacher>(); //isEmpty == true
         ResultSet rs;
 

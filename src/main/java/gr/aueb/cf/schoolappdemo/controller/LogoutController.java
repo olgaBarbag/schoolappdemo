@@ -1,6 +1,7 @@
 package gr.aueb.cf.schoolappdemo.controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serial;
 
+@WebServlet("/logout")
 public class LogoutController extends HttpServlet {
     @Serial
     private static final long serialVersionUID = -3427227805581059481L;
@@ -21,6 +23,6 @@ public class LogoutController extends HttpServlet {
             session.invalidate();
         }
 
-        response.sendRedirect("login.jsp");               //3)
+        response.sendRedirect(request.getContextPath() + "/login");               //3)
     }
 }

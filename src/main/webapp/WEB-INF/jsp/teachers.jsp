@@ -22,8 +22,8 @@
             Method POST: data is packaged in request so it is not in URL--%>
         <form id="filterForm" method="GET" action="${pageContext.request.contextPath}/teachers">
             <%--        <input type="text" name="filterId" placeholder="Enter ID" />--%>
-            <input type="text" name="filterFirstname" placeholder="Όνομα" />
-            <input type="text" name="filterLastname" placeholder="Επώνυμο" />
+            <input type="text" name="filterFirstname" placeholder="Firstname" />
+            <input type="text" name="filterLastname" placeholder="Lastname" />
             <input class="custom-button-green" id="submitBtn" type="submit" value="Αναζήτηση" />
             <button class="reset-button" id="resetBtn" type="button" onclick="reset()">Επαναφορά</button>
         </form>

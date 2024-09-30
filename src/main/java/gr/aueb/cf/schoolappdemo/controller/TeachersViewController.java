@@ -1,6 +1,7 @@
 package gr.aueb.cf.schoolappdemo.controller;
 
 import gr.aueb.cf.schoolappdemo.dao.ITeacherDAO;
+import gr.aueb.cf.schoolappdemo.dao.TeacherDAOImpl;
 import gr.aueb.cf.schoolappdemo.dao.exceptions.TeacherDAOException;
 import gr.aueb.cf.schoolappdemo.dto.FiltersDTO;
 import gr.aueb.cf.schoolappdemo.model.Teacher;
@@ -22,7 +23,7 @@ public class TeachersViewController extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 5625722001732942107L;
 
-    ITeacherDAO teacherDAO;
+    ITeacherDAO teacherDAO = new TeacherDAOImpl();
     ITeacherService teacherService = new TeacherServiceImpl(teacherDAO);
 
     @Override
