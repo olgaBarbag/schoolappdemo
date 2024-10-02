@@ -49,13 +49,13 @@ public class TeachersViewController extends HttpServlet {
             teachers = teacherService.getFilteredTeachers(filtersDTO);
             if (teachers.isEmpty()) {
                 request.setAttribute("message", "Teachers not found");
-                request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/jsp/teachers.jsp").forward(request, response);
                 return;
             }
 
             request.setAttribute("teachers", teachers);
 
-            request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/teachers.jsp").forward(request, response);
 
         } catch (TeacherDAOException e) {
             message = e.getMessage();

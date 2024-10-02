@@ -47,5 +47,11 @@ public class AuthFilter implements Filter {
                 }
             }
         }
+
+        if (!authenticated) {
+            response.sendRedirect(request.getContextPath() + "/login");
+        } else {
+            filterChain.doFilter(request, response);
+        }
     }
 }

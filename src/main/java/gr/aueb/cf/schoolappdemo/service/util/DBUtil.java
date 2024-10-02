@@ -6,9 +6,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DBUtil {
-
-    private static Connection connection;
     private static BasicDataSource dataSource = new BasicDataSource();
+    private static Connection connection;
+
 
     static {
           dataSource.setUrl("jdbc:mysql://localhost:3306/schoolappdemo?serverTimezone=UTC");
