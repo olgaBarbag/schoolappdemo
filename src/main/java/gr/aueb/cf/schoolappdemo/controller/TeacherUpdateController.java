@@ -89,6 +89,8 @@ public class TeacherUpdateController extends HttpServlet {
 
                 /*Redirect to the same page (register page)*/
                 request.getRequestDispatcher("/WEB-INF/jsp/teacher-update.jsp").forward(request, response);
+
+                return;
             }
 
             teacher = teacherService.updateTeacher(teacherUpdateDTO);

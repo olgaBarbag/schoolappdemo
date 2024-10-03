@@ -79,6 +79,8 @@ public class TeacherInsertController extends HttpServlet {
 
                 /*Redirect to the same page (register page)*/
                 request.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp").forward(request, response);
+
+                return;
             }
 
             teacher = teacherService.insertTeacher(teacherInsertDTO);
@@ -89,7 +91,7 @@ public class TeacherInsertController extends HttpServlet {
         } catch (TeacherDAOException e) {
             errorMessage = e.getMessage();
             request.setAttribute("errorMessage", errorMessage);
-            request.getRequestDispatcher("WEB-INF/jsp/teacher-insert.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/jsp/teacher-insert.jsp").forward(request, response);
         }
 
 
