@@ -1,5 +1,6 @@
 package gr.aueb.cf.schoolappdemo.service;
 
+import gr.aueb.cf.schoolappdemo.core.RoleType;
 import gr.aueb.cf.schoolappdemo.dao.IUserDAO;
 import gr.aueb.cf.schoolappdemo.dao.exceptions.UserDAOException;
 import gr.aueb.cf.schoolappdemo.dto.UserInsertDTO;
@@ -75,7 +76,10 @@ public class UserServiceImpl implements IUserService {
         }
     }
 
+    /*User: RoleType
+    * dto: String
+    * Convert String to RoleType using a static factory method (provided by ENUM class) ".valueOf()"*/
     private User mapToUser(UserInsertDTO insertDTO) {
-        return new User(null, insertDTO.getUsername(), insertDTO.getPassword());
+        return new User(null, insertDTO.getUsername(), insertDTO.getPassword(), RoleType.valueOf(insertDTO.getRole()));
     }
 }

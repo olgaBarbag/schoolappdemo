@@ -53,6 +53,7 @@ public class UserRegisterController extends HttpServlet {
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
         String confirmPassword = request.getParameter("confirmPassword").trim();
+        String role = request.getParameter("role").trim();
 
         /*Creates an object for the subsequent conditional check*/
         Map<String, String> errors;
@@ -63,7 +64,7 @@ public class UserRegisterController extends HttpServlet {
         String confirmPasswordMessage;
 
         /*DTO instance*/
-        UserInsertDTO userInsertDTO  = new UserInsertDTO(username, password, confirmPassword);
+        UserInsertDTO userInsertDTO  = new UserInsertDTO(username, password, confirmPassword, role);
 
         User user;
         try {

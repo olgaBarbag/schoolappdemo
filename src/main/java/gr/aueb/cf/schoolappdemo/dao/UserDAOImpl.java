@@ -1,5 +1,6 @@
 package gr.aueb.cf.schoolappdemo.dao;
 
+import gr.aueb.cf.schoolappdemo.core.RoleType;
 import gr.aueb.cf.schoolappdemo.dao.exceptions.UserDAOException;
 import gr.aueb.cf.schoolappdemo.model.User;
 import gr.aueb.cf.schoolappdemo.security.SecUtil;
@@ -15,13 +16,15 @@ import java.util.List;
 public class UserDAOImpl implements IUserDAO {
     @Override
     public User insert(User user) throws UserDAOException {
-        String insertSql = "INSERT INTO users (username, password) values(?,?)";
+        String insertSql = "INSERT INTO users (username, password, role) values(?, ?, ?)";
 
         try (Connection connection = DBUtil.getConnection();
         PreparedStatement ps = connection.prepareStatement(insertSql)) {
 
             ps.setString(1, user.getUsername());
             ps.setString(2, SecUtil.encryptPassword(user.getPassword()));
+            //RoleType to String using ".name()"
+            ps.setString(3, user.getRoleType().name());
             ps.executeUpdate();
 
             //logging
@@ -86,7 +89,11 @@ public class UserDAOImpl implements IUserDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                users.add(new User(rs.getInt("id"), rs.getString("username"), SecUtil.encryptPassword(rs.getString("password"))));
+
+                users.add(new User(rs.getInt("id"),
+                        rs.getString("username"),
+                        SecUtil.encryptPassword(rs.getString("password")),
+                        RoleType.valueOf(rs.getString("role"))));
             }
 
             return users;
@@ -108,7 +115,10 @@ public class UserDAOImpl implements IUserDAO {
             ps.setString(1, username);
             rs = ps.executeQuery();
             if (rs.next()) {
-                user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"));
+                user = new User(rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        RoleType.valueOf(rs.getString("role")));
             }
             return user;
         } catch (SQLException e) {
@@ -151,7 +161,10 @@ public class UserDAOImpl implements IUserDAO {
             ps.setString(1, username);
             rs = ps.executeQuery();
             if (rs.next()) {
-                user = new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"));
+                user = new User(rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        RoleType.valueOf(rs.getString("role")));
             } else {
                 return false;
             }

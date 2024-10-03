@@ -58,6 +58,16 @@
         <p class="validation-error">${requestScope.confirmPasswordMessage}</p>
       </div>
 
+      <%--New repository: roles added--%>
+      <div class="row m-bottom">
+        <select class="m-bottom" name="role">
+          <option value="Teacher">Καθηγητής</option>
+          <option value="Student">Μαθητής</option>
+          <option value="Admin">Διαχειριστής</option>
+        </select>
+        <p class="validation-error">${requestScope.roleMessage}</p>
+      </div>
+
       <%--Submit--%>
       <div class="row">
         <button type="submit">Εγγραφή</button>
