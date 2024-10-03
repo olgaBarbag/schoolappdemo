@@ -20,6 +20,8 @@
     <div class="form">
         <%--Method GET: data set in URL as paramaters
             Method POST: data is packaged in request so it is not in URL--%>
+        <%--For sensitive input data use POST, else like filter inputs you can use both--%>
+        <%--Reccomended to use POST for great amount of filters--%>
         <form id="filterForm" method="GET" action="${pageContext.request.contextPath}/teachers">
             <%--        <input type="text" name="filterId" placeholder="Enter ID" />--%>
             <input type="text" name="filterFirstname" placeholder="Firstname" />

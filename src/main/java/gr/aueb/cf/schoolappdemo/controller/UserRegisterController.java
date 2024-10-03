@@ -67,7 +67,7 @@ public class UserRegisterController extends HttpServlet {
 
         User user;
         try {
-            /*Connect the object with the method that is used in conditional*/
+            /*Connect the object with the validator method that is used in conditional*/
             errors = UserValidator.validate(userInsertDTO);
 
             /*Conditional checks if there are errors*/
@@ -95,7 +95,7 @@ public class UserRegisterController extends HttpServlet {
             user = userService.insertUser(userInsertDTO);
             UserReadOnlyDTO readOnlyDTO = mapToReadOnlyDTO(user);
 
-
+            /*This attribute is in user-registered jsp*/
             request.setAttribute("userInfo", readOnlyDTO);
             request.getRequestDispatcher("/WEB-INF/jsp/user-registered.jsp").forward(request, response);
 
